@@ -1,0 +1,13 @@
+# Application dependencies
+
+require:
+    - play
+    - play -> cobertura 2.3
+    - sonar -> sonar
+
+repositories:
+  - LocalModules:
+        type:       local
+        artifact:   ${application.path}/../[module]
+        contains:
+                    - sonar

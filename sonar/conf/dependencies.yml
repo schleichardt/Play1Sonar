@@ -1,0 +1,4 @@
+self: play -> sonar 0.1
+
+require:
+    - play

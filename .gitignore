@@ -1,0 +1,45 @@
+# Extracted from https://github.com/ulrich/macaron-factory/blob/master/.gitignore
+# and templates from Michael Schleichardt
+# Ignore all dotfiles...
+.*
+# except for .gitignore
+!.gitignore
+
+# Ignore Play! working directory #
+db
+eclipse
+log
+logs
+precompiled
+tmp
+test-result
+eclipse
+server.pid
+
+#Play existing modules
+modules/*
+cobertura.ser
+
+#kde
+.directory
+
+# IDEs and editors
+*~
+.idea
+nbproject
+eclipse
+.amateras
+.settings
+.classpath
+.project
+*.iml
+*.ipr
+*.iws
+
+#JVM
+*.class
+*.jar
+*.war
+
+#Python
+*.pyc

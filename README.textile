@@ -1,0 +1,43 @@
+This is a module to use sonar with play. It is an alpha version.
+You need your own sonar server and the "Java Runner for sonar":http://docs.codehaus.org/display/SONAR/Analyse+with+a+simple+Java+Runner .
+
+h2. How it works
+
+This module generates  the sonar config file for your application at your application root folder (_sonar-project.properties_).
+In addition it precompiles the classes for findbugs. For findbugs are only the production classes accessible.
+
+h2. Example
+
+Download this entire folder.
+In folder _exampleApp_ is a play app that uses this module. 
+
+h2. Module installation
+
+Add this modules to your _dependencies.yml_ and add the following keys to your _application.conf_:
+
+<pre>sonar.projectKey = key-of-project
+sonar.projectName = name of the project
+sonar.projectVersion = 0.1</pre>
+
+The Java Runner for sonar should be available in ${PATH}, so you can call it with _sonar-runner_.
+
+h2. Run the analysis
+
+Start your sonar server and enter in your command line:
+<pre>play deps && play sonar && sonar-runner</pre>
+
+h2. Licence
+
+Copyright 2012 Michael Schleichardt
+
+Licensed under the Apache License, Version 2.0 (the "License");
+you may not use this file except in compliance with the License.
+You may obtain a copy of the License at
+
+http://www.apache.org/licenses/LICENSE-2.0
+
+Unless required by applicable law or agreed to in writing, software
+distributed under the License is distributed on an "AS IS" BASIS,
+WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+See the License for the specific language governing permissions and
+limitations under the License..
