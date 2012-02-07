@@ -47,9 +47,9 @@ libraries={appLibsPath}{playPath}/framework/*.jar,{playPath}/framework/lib/*.jar
 sonar.dynamicAnalysis=reuseReports
 sonar.tests=test
 sonar.surefire.reportsPath=test-result
+#cobertura does not need to be used, missing cobertura does not interfer with analysis
 sonar.cobertura.reportPath=test-result/code-coverage/coverage.xml
 """
-### TODO only integrate cobertura if included in project
 ### TODO call play auto-test
         appHasLibs = len(glob.glob('lib/*.jar')) > 0
 #        if appHasLibs:
