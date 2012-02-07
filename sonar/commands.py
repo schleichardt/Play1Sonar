@@ -50,9 +50,7 @@ sonar.surefire.reportsPath=test-result
 #cobertura does not need to be used, missing cobertura does not interfer with analysis
 sonar.cobertura.reportPath=test-result/code-coverage/coverage.xml
 """
-### TODO call play auto-test
         appHasLibs = len(glob.glob('lib/*.jar')) > 0
-#        if appHasLibs:
         appLibsPathValue = ""
         if appHasLibs:
           appLibsPathValue = app.path + '/lib/*.jar' + ',' 
