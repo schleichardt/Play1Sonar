@@ -17,6 +17,7 @@ eclipse
 server.pid
 
 #Play existing modules
+modules
 modules/*
 cobertura.ser
 
@@ -43,3 +44,7 @@ eclipse
 
 #Python
 *.pyc
+
+#project specific
+sonar-project.properties
+pom.xml
