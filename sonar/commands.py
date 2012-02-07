@@ -27,13 +27,15 @@ def before(**kargs):
         play.commands.precompile.execute(command=command, app=app, args=args, env=env)
         #auto-test not callable
         configFileContents="""# Generated file, do NOT edit it or add it to your revision control system
+# http://docs.codehaus.org/display/SONAR/Advanced+parameters        
+        
 # Required metadata
 sonar.projectKey={sonarProjectKey}
 sonar.projectName={sonarProjectName}
 sonar.projectVersion={sonarProjectVersion}
 
 # Comma-separated paths to directories with sources (required)
-sources=app,test
+sources=app
 
 # Comma-separated paths to directories with binaries (optional), in case of Java - directories with class files
 binaries=precompiled/java/
@@ -41,7 +43,9 @@ binaries=precompiled/java/
 # Comma-separated paths to files with third-party libraries (optional), in case of Java - JAR files
 libraries={playPath}/framework/*.jar,{playPath}/framework/lib/*.jar
 
-sonar.dynamicAnalysis=true
+sonar.dynamicAnalysis=reuseReports
+sonar.tests=test
+sonar.surefire.reportsPath=test-result
 sonar.cobertura.reportPath=test-result/code-coverage/coverage.xml
 """
 ### TODO add lib/*.jar to libraries if not empty
