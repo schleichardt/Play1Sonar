@@ -15,9 +15,10 @@ h2. Module installation
 
 Add this modules to your _dependencies.yml_ and add the following keys to your _application.conf_:
 
-<pre>sonar.projectKey = key-of-project
-sonar.projectName = name of the project
-sonar.projectVersion = 0.1</pre>
+<pre>application.groupId=tld.company
+application.version = 0.1
+#only for analysis based on maven (given value is default)
+sonar.host.url=http://localhost:9000</pre>
 
 The Java Runner for sonar should be available in ${PATH}, so you can call it with _sonar-runner_.
 
