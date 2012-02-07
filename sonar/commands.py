@@ -3,6 +3,7 @@
 import play.commands.deps
 import play.commands.precompile
 from play.utils import *
+import glob
 
 MODULE = 'sonar'
 
@@ -41,17 +42,21 @@ sources=app
 binaries=precompiled/java/
 
 # Comma-separated paths to files with third-party libraries (optional), in case of Java - JAR files
-libraries={playPath}/framework/*.jar,{playPath}/framework/lib/*.jar
+libraries={appLibsPath}{playPath}/framework/*.jar,{playPath}/framework/lib/*.jar
 
 sonar.dynamicAnalysis=reuseReports
 sonar.tests=test
 sonar.surefire.reportsPath=test-result
 sonar.cobertura.reportPath=test-result/code-coverage/coverage.xml
 """
-### TODO add lib/*.jar to libraries if not empty
 ### TODO only integrate cobertura if included in project
 ### TODO call play auto-test
-        configFileContents = configFileContents.format(sonarProjectKey = app.readConf('sonar.projectKey'), sonarProjectName = app.readConf('sonar.projectName'), sonarProjectVersion = app.readConf('sonar.projectVersion'), playPath = app.play_env['basedir'])
+        appHasLibs = len(glob.glob('lib/*.jar')) > 0
+#        if appHasLibs:
+        appLibsPathValue = ""
+        if appHasLibs:
+          appLibsPathValue = app.path + '/lib/*.jar' + ',' 
+        configFileContents = configFileContents.format(sonarProjectKey = app.readConf('sonar.projectKey'), sonarProjectName = app.readConf('sonar.projectName'), sonarProjectVersion = app.readConf('sonar.projectVersion'), playPath = app.play_env['basedir'], appLibsPath = appLibsPathValue)
         sonarConfigFileHandle = open(app.path + "/sonar-project.properties", "w")
         sonarConfigFileHandle.write(configFileContents)
         sonarConfigFileHandle.close
@@ -65,3 +70,4 @@ def after(**kargs):
 
     if command == "new":
         pass
+    
