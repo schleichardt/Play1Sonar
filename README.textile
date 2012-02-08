@@ -24,8 +24,11 @@ The Java Runner for sonar should be available in ${PATH}, so you can call it wit
 
 h2. Run the analysis
 
-Start your sonar server and enter in your command line:
-<pre>play sonar && sonar-runner</pre>
+Start your sonar server and enter in your command line to Call the sonar Java Runner:
+<pre>play auto-test --deps && play sonar && sonar-runner</pre>
+
+Alternatively call Maven 2:
+<pre>play auto-test --deps &&play sonar && mvn sonar:sonar</pre>
 
 h2. Licence
 
