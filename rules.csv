@@ -425,7 +425,6 @@ Performance - Method invokes inefficient Boolean constructor; use Boolean.valueO
 Performance - Method invokes inefficient floating-point Number constructor; use static valueOf instead,DM_FP_NUMBER_CTOR,findbugs,MAJOR,ACTIVE
 Performance - Method invokes inefficient new String() constructor,DM_STRING_VOID_CTOR,findbugs,MAJOR,ACTIVE
 Performance - Method invokes inefficient new String(String) constructor,DM_STRING_CTOR,findbugs,MAJOR,ACTIVE
-Performance - Method invokes inefficient Number constructor; use static valueOf instead,DM_NUMBER_CTOR,findbugs,CRITICAL,ACTIVE
 Performance - Method invokes toString() method on a String,DM_STRING_TOSTRING,findbugs,INFO,ACTIVE
 Performance - Method uses toArray() with zero-length array argument,ITA_INEFFICIENT_TO_ARRAY,findbugs,CRITICAL,ACTIVE
 Performance - Primitive value is boxed and then immediately unboxed,BX_BOXING_IMMEDIATELY_UNBOXED,findbugs,MAJOR,ACTIVE
